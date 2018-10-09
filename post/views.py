@@ -18,7 +18,7 @@ def edit_post(request):
         post_id = int(request.POST.get('post_id'))
         post = Post.objects.get(pk = post_id)
 
-        post_title = request.POST.get('title')
+        post.title = request.POST.get('title')
         post.content = request.POST.get('content')
         post.save()
         return redirect("/post/read/?post_id=%d" % post.id)
